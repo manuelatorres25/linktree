@@ -1,0 +1,135 @@
+/* Fondo general */
+body {
+  background-color: #ffe5e5;
+  color: #5a3b44;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Menú */
+.menu {
+  background-color: #e07a7a;
+  padding: 15px 0;
+}
+.menu ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu li {
+  margin: 0 10px;
+}
+.menu a {
+  color: #5a3b44;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: #ffe5e5;
+}
+.menu a:hover {
+  background-color: #d9534f;
+  color: white;
+}
+
+/* Contenedor principal */
+.playlist-container {
+  display: flex;
+  flex: 1;
+  width: 85%;
+  margin: 30px auto;
+  background-color: #fff4f4;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Lista lateral */
+.songs-list {
+  width: 30%;
+  background-color: #ffd6d6;
+  padding: 20px;
+  overflow-y: auto;
+  border-radius: 15px 0 0 15px;
+}
+.songs-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.songs-list li {
+  background-color: #e07a7a;
+  color: white;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: default;
+  transition: 0.3s;
+}
+.songs-list li:hover {
+  background-color: #c2433e;
+}
+
+/* Sección principal */
+.playlist-main {
+  width: 70%;
+  padding: 30px;
+  text-align: center;
+}
+.playlist-main h1 {
+  color: #e07a7a;
+  margin-bottom: 20px;
+}
+.playlist-cover {
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Scrollbar personalizada */
+.songs-list::-webkit-scrollbar {
+  width: 10px;
+}
+.songs-list::-webkit-scrollbar-track {
+  background: #ffd6d6;
+  border-radius: 10px;
+}
+.songs-list::-webkit-scrollbar-thumb {
+  background: #e07a7a;
+  border-radius: 10px;
+}
+.songs-list::-webkit-scrollbar-thumb:hover {
+  background: #c2433e;
+}
+
+/* Footer */
+footer {
+  background-color: #e07a7a;
+  color: #5a3b44;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+.columna {
+  display: inline-block;
+  width: 25vw;
+  vertical-align: top;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+footer a {
+  color: #5a3b44;
+  text-decoration: none;
+}
+footer a:hover {
+  color: white;
+}
+a {
+  text-decoration: none;
+}
