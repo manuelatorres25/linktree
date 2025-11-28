@@ -72,9 +72,6 @@ document.querySelectorAll('.bin').forEach(bin => {
   });
 });
 
-/* -----------------------
-   FUNCIÓN PARA USAR EN AMBOS MODOS
------------------------ */
 function evaluarRespuesta(item, bin) {
   const correcto = item.dataset.type === bin.dataset.type;
 
@@ -94,7 +91,7 @@ function evaluarRespuesta(item, bin) {
 
 //FORMULARIO DE CONTACTO
     (function(){
-      emailjs.init("_XQ6zjcwkulunLv28"); // <-- reemplaza con tu Public Key
+      emailjs.init("_XQ6zjcwkulunLv28"); 
     })();
 
     const form = document.getElementById('contact-form');
@@ -102,7 +99,7 @@ function evaluarRespuesta(item, bin) {
     form.addEventListener('submit', function(event) {
       event.preventDefault();
 
-      emailjs.sendForm('serviceid', 'template_yrixckg', this) // <-- reemplaza con tu Service ID y Template ID
+      emailjs.sendForm('serviceid', 'template_yrixckg', this) // 
         .then(function() {
           alert('Mensaje enviado con éxito!');
           form.reset();
@@ -110,6 +107,7 @@ function evaluarRespuesta(item, bin) {
           alert('Hubo un error al enviar el mensaje: ' + JSON.stringify(error));
         });
     });
+
 
 
 
