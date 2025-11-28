@@ -83,4 +83,87 @@ h1 {
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(77, 184, 255, 0.4);
 }
+/* ============================
+   MEDIA QUERIES
+============================ */
+
+/* CELULARES: hasta 600px */
+@media only screen and (max-width: 600px) {
+
+  body {
+    padding: 15px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .bins {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .bin img {
+    width: 100px;
+  }
+
+  .bin p {
+    font-size: 16px;
+  }
+
+  .items {
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .item {
+    width: 70px;
+  }
+
+  .btn-volver {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+}
+
+/* TABLETS: entre 601px y 992px */
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .bins {
+    gap: 30px;
+  }
+
+  .bin img {
+    width: 120px;
+  }
+
+  .bin p {
+    font-size: 17px;
+  }
+
+  .items {
+    gap: 20px;
+    padding: 18px;
+  }
+
+  .item {
+    width: 80px;
+  }
+
+  .btn-volver {
+    padding: 11px 24px;
+    font-size: 0.95rem;
+  }
+
+}
+
 
