@@ -5,18 +5,21 @@ body {
   padding: 30px;
   color: #333;
 }
+
 h1 {
   margin-bottom: 30px;
   font-size: 32px;
   font-weight: 600;
   color: #1a3d7c;
 }
+
 .bins {
   display: flex;
   justify-content: center;
   gap: 50px;
   margin-bottom: 50px;
 }
+
 .bin {
   background: white;
   padding: 15px;
@@ -24,22 +27,27 @@ h1 {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   transition: transform .2s;
 }
+
 .bin:hover {
   transform: scale(1.05);
 }
+
 .bin img {
   width: 140px;
 }
+
 .bin p {
   margin-top: 10px;
   font-weight: 600;
   font-size: 18px;
 }
+
 .bin.dragover {
   outline: 4px dashed #1a3d7c;
   border-radius: 15px;
   transform: scale(1.07);
 }
+
 .items {
   background: white;
   padding: 20px;
@@ -52,18 +60,22 @@ h1 {
   flex-wrap: wrap;
   gap: 25px;
 }
+
 .item {
   width: 90px;
   cursor: grab;
   transition: transform .2s;
 }
+
 .item:hover {
   transform: scale(1.12);
 }
+
 .item:active {
   cursor: grabbing;
   transform: scale(1.2);
 }
+
 .btn-volver {
   display: inline-block;
   padding: 12px 28px;
@@ -78,87 +90,40 @@ h1 {
   border: 2px solid #269fe6;   
   box-shadow: 0 4px 10px rgba(77, 184, 255, 0.3);
 }
+
 .btn-volver:hover {
   background: #37a9f2;    
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(77, 184, 255, 0.4);
 }
+
+/* 🔥 SOLUCIÓN PARA QUE NO SE ABRAN LAS IMÁGENES EN CELULAR */
+.item img,
+.bin img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+}
+
 /* CELULARES: hasta 600px */
 @media only screen and (max-width: 600px) {
-  body {
-    padding: 15px;
-    text-align: center;
-  }
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+
   .bins {
-    flex-direction: row;             
-    flex-wrap: nowrap;               
-    justify-content: space-between;  
-    gap: 5px;                     
-    margin-bottom: 30px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 5px;
   }
+
   .bin {
-    flex: 1 1 30%;               
-    min-width: 80px;                
+    flex: 1 1 30%;
+    min-width: 80px;
     padding: 10px;
     box-sizing: border-box;
   }
+
   .bin img {
     width: 100%;
     height: auto;
-  }
-  .bin p {
-    font-size: 16px;
-  }
-  .items {
-    gap: 15px;
-    padding: 15px;
-  }
-  .item {
-    width: 70px;
-  }
-  .btn-volver {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-}
-/* TABLETS: entre 601px y 992px */
-@media only screen and (min-width: 601px) and (max-width: 992px) {
-  h1 {
-    font-size: 28px;
-    margin-bottom: 25px;
-  }
-  .bins {
-    flex-direction: row;
-    flex-wrap: wrap;               
-    justify-content: center;
-    gap: 20px;
-  }
-  .bin {
-    flex: 1 1 22%;                 
-    max-width: 180px;
-    padding: 15px;
-    box-sizing: border-box;
-  }
-  .bin img {
-    width: 100%;
-    height: auto;
-  }
-  .bin p {
-    font-size: 17px;
-  }
-  .items {
-    gap: 20px;
-    padding: 18px;
-  }
-  .item {
-    width: 80px;
-  }
-  .btn-volver {
-    padding: 11px 24px;
-    font-size: 0.95rem;
   }
 }
