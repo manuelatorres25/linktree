@@ -104,6 +104,20 @@ h1 {
     width: 100%;
     height: auto;
   }
+.item img,
+.bin img {
+  pointer-events: none;     
+  -webkit-user-drag: none;   
+  user-drag: none;
+  touch-action: none;        
 }
+
+body, .item, .bin {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+}
+
 
 
