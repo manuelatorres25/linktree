@@ -33,9 +33,6 @@ let intentos = 0;
 
 const totalObjetos = document.querySelectorAll('.item').length;
 
-/* -----------------------
-   PC: DRAG AND DROP
------------------------ */
 document.querySelectorAll('.item').forEach(item => {
   item.addEventListener('dragstart', () => {
     draggedItem = item;
@@ -54,10 +51,6 @@ document.querySelectorAll('.bin').forEach(bin => {
     draggedItem = null;
   });
 });
-
-/* -----------------------
-   CELULAR: TAP → TAP
------------------------ */
 document.querySelectorAll('.item').forEach(item => {
   item.addEventListener("touchstart", (e) => {
     e.preventDefault(); // evita abrir imágenes
@@ -117,6 +110,7 @@ function evaluarRespuesta(item, bin) {
           alert('Hubo un error al enviar el mensaje: ' + JSON.stringify(error));
         });
     });
+
 
 
 
