@@ -27,11 +27,15 @@ function cerrarModal(e) {
 }
 //JUEGO
 let draggedItem = null;
-let correctas = 0; 
-let intentos = 0;  
+let tappedItem = null; // Para celular
+let correctas = 0;
+let intentos = 0;
 
 const totalObjetos = document.querySelectorAll('.item').length;
 
+/* -----------------------
+   PC: DRAG AND DROP
+----------------------- */
 document.querySelectorAll('.item').forEach(item => {
   item.addEventListener('dragstart', () => {
     draggedItem = item;
@@ -39,41 +43,62 @@ document.querySelectorAll('.item').forEach(item => {
 });
 
 document.querySelectorAll('.bin').forEach(bin => {
-
-  bin.addEventListener('dragover', (e) => {
-    e.preventDefault();
-  });
-
-  bin.addEventListener('dragenter', () => {
-    bin.classList.add('dragover');
-  });
-
-  bin.addEventListener('dragleave', () => {
-    bin.classList.remove('dragover');
-  });
+  bin.addEventListener('dragover', (e) => e.preventDefault());
+  bin.addEventListener('dragenter', () => bin.classList.add('dragover'));
+  bin.addEventListener('dragleave', () => bin.classList.remove('dragover'));
 
   bin.addEventListener('drop', () => {
     bin.classList.remove('dragover');
-
     if (!draggedItem) return;
-
-    const correcto = draggedItem.dataset.type === bin.dataset.type;
-
-    if (correcto) {
-      alert("¡Correcto!");
-      correctas++;
-    } else {
-      alert("Incorrecto");
-    }
-
-    intentos++;
+    evaluarRespuesta(draggedItem, bin);
     draggedItem = null;
-
-    if (intentos === totalObjetos) {
-      alert("Juego terminado. Aciertos: " + correctas + " de " + totalObjetos);
-    }
   });
 });
+
+/* -----------------------
+   CELULAR: TAP → TAP
+----------------------- */
+document.querySelectorAll('.item').forEach(item => {
+  item.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // evita abrir imágenes
+    tappedItem = item;
+
+    // efecto visual opcional
+    item.style.transform = "scale(1.15)";
+    setTimeout(() => item.style.transform = "scale(1)", 200);
+  });
+});
+
+document.querySelectorAll('.bin').forEach(bin => {
+  bin.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // evita zoom o selección
+    if (!tappedItem) return;
+
+    evaluarRespuesta(tappedItem, bin);
+    tappedItem = null;
+  });
+});
+
+/* -----------------------
+   FUNCIÓN PARA USAR EN AMBOS MODOS
+----------------------- */
+function evaluarRespuesta(item, bin) {
+  const correcto = item.dataset.type === bin.dataset.type;
+
+  if (correcto) {
+    alert("¡Correcto!");
+    correctas++;
+  } else {
+    alert("Incorrecto");
+  }
+
+  intentos++;
+
+  if (intentos === totalObjetos) {
+    alert("Juego terminado. Aciertos: " + correctas + " de " + totalObjetos);
+  }
+}
+
 //FORMULARIO DE CONTACTO
     (function(){
       emailjs.init("_XQ6zjcwkulunLv28"); // <-- reemplaza con tu Public Key
@@ -92,6 +117,7 @@ document.querySelectorAll('.bin').forEach(bin => {
           alert('Hubo un error al enviar el mensaje: ' + JSON.stringify(error));
         });
     });
+
 
 
 
