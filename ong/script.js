@@ -27,53 +27,95 @@ function cerrarModal(e) {
 }
 //JUEGO
 let draggedItem = null;
-let correctas = 0; 
-let intentos = 0;  
+let correctas = 0;
+let intentos = 0;
 
-const totalObjetos = document.querySelectorAll('.item').length;
+const totalObjetos = document.querySelectorAll(".item").length;
 
-document.querySelectorAll('.item').forEach(item => {
-  item.addEventListener('dragstart', () => {
+/* --- EVENTOS PARA PC (drag & drop normal) --- */
+document.querySelectorAll(".item").forEach(item => {
+  item.addEventListener("dragstart", () => {
     draggedItem = item;
   });
 });
 
-document.querySelectorAll('.bin').forEach(bin => {
+/* --- EVENTOS PARA CELULAR (touch) --- */
+document.querySelectorAll(".item").forEach(item => {
 
-  bin.addEventListener('dragover', (e) => {
-    e.preventDefault();
+  item.addEventListener("touchstart", (e) => {
+    draggedItem = item;
   });
 
-  bin.addEventListener('dragenter', () => {
-    bin.classList.add('dragover');
-  });
+  item.addEventListener("touchmove", (e) => {
+    e.preventDefault(); // evita scroll mientras arrastra
+    const touch = e.touches[0];
+    const elemento = document.elementFromPoint(touch.clientX, touch.clientY);
 
-  bin.addEventListener('dragleave', () => {
-    bin.classList.remove('dragover');
-  });
+    document.querySelectorAll('.bin').forEach(bin => {
+      bin.classList.remove('dragover');
+    });
 
-  bin.addEventListener('drop', () => {
-    bin.classList.remove('dragover');
-
-    if (!draggedItem) return;
-
-    const correcto = draggedItem.dataset.type === bin.dataset.type;
-
-    if (correcto) {
-      alert("¡Correcto!");
-      correctas++;
-    } else {
-      alert("Incorrecto");
+    if (elemento && elemento.classList.contains('bin')) {
+      elemento.classList.add('dragover');
     }
+  });
 
-    intentos++;
-    draggedItem = null;
+  item.addEventListener("touchend", (e) => {
+    const touch = e.changedTouches[0];
+    const elemento = document.elementFromPoint(touch.clientX, touch.clientY);
 
-    if (intentos === totalObjetos) {
-      alert("Juego terminado. Aciertos: " + correctas + " de " + totalObjetos);
+    document.querySelectorAll('.bin').forEach(bin => {
+      bin.classList.remove('dragover');
+    });
+
+    if (elemento && elemento.classList.contains("bin")) {
+      soltarEnBin(elemento);
     }
   });
 });
+
+/* --- EVENTOS PARA PC (dragover/drop) --- */
+document.querySelectorAll(".bin").forEach(bin => {
+  
+  bin.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  bin.addEventListener("dragenter", () => {
+    bin.classList.add("dragover");
+  });
+
+  bin.addEventListener("dragleave", () => {
+    bin.classList.remove("dragover");
+  });
+
+  bin.addEventListener("drop", () => {
+    soltarEnBin(bin);
+  });
+});
+
+/* --- FUNCIÓN GENERAL PARA SOLTAR ITEMS --- */
+function soltarEnBin(bin) {
+  if (!draggedItem) return;
+
+  bin.classList.remove("dragover");
+
+  const correcto = draggedItem.dataset.type === bin.dataset.type;
+
+  if (correcto) {
+    alert("¡Correcto!");
+    correctas++;
+  } else {
+    alert("Incorrecto");
+  }
+
+  intentos++;
+  draggedItem = null;
+
+  if (intentos === totalObjetos) {
+    alert(`Juego terminado. Aciertos: ${correctas} de ${totalObjetos}`);
+  }
+}
 
 //FORMULARIO DE CONTACTO
     (function(){
@@ -93,5 +135,6 @@ document.querySelectorAll('.bin').forEach(bin => {
           alert('Hubo un error al enviar el mensaje: ' + JSON.stringify(error));
         });
     });
+
 
 
