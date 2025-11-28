@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Residuos</title>
+  <link rel="stylesheet" href="stylejuego.css">
+</head>
+
+<body>
+
+  <h1>Clasificá los residuos</h1>
+
+  <div class="bins">
+    <div class="bin" data-type="organico">
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/tachoverde.png">
+        <img src="imagenes/tachoverde.png" alt="Orgánico">
+      </picture>
+      <p>Orgánico</p>
+    </div>
+
+    <div class="bin" data-type="seco">
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/tachoazul.png">
+        <img src="imagenes/tachoazul.png" alt="Seco">
+      </picture>
+      <p>Seco</p>
+    </div>
+
+    <div class="bin" data-type="patogenico">
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/tachorojo.png">
+        <img src="imagenes/tachorojo.png" alt="Patogénico">
+      </picture>
+      <p>Patogénico</p>
+    </div>
+  </div>
+
+  <div class="items">
+
+    <picture>
+      <source media="(min-width:650px)" srcset="imagenes/banana.png">
+      <img class="item" src="imagenes/banana.png" data-type="organico" draggable="true">
+    </picture>
+
+    <picture>
+      <source media="(min-width:650px)" srcset="imagenes/curita.png">
+      <img class="item" src="imagenes/curita.png" data-type="patogenico" draggable="true">
+    </picture>
+
+    <picture>
+      <source media="(min-width:650px)" srcset="imagenes/manzana.png">
+      <img class="item" src="imagenes/manzana.png" data-type="organico" draggable="true">
+    </picture>
+
+    <picture>
+      <source media="(min-width:650px)" srcset="imagenes/botella.png">
+      <img class="item" src="imagenes/botella.png" data-type="seco" draggable="true">
+    </picture>
+
+    <picture>
+      <source media="(min-width:650px)" srcset="imagenes/caja.png">
+      <img class="item" src="imagenes/caja.png" data-type="seco" draggable="true">
+    </picture>
+
+    <picture>
+      <source media="(min-width:650px)" srcset="imagenes/jeringa.png">
+      <img class="item" src="imagenes/jeringa.png" data-type="patogenico" draggable="true">
+    </picture>
+
+  </div>
+
+  <a href="index.html" class="btn-volver">Volver al inicio</a>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+
+

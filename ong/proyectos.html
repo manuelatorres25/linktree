@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoRumbo - Proyectos</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav-ecorumbo">
+      <div class="logo">
+        <picture>
+          <source media="(min-width:650px)" srcset="imagenes/logo2copia.png">
+          <img src="imagenes/logo2copia.png" alt="Logo EcoRumbo" class="logo-img">
+        </picture>
+        <span class="logo-text">EcoRumbo</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h2>Proyectos</h2>
+    <p>Acciones concretas que impulsamos para cuidar el planeta</p>
+  </section>
+
+  <section class="container page-content">
+
+    <h2>Nuestro trabajo</h2>
+    <p>Estos son algunos de los proyectos que realizamos para generar un impacto ambiental real en las comunidades.</p>
+
+    <div class="proyectos-grid">
+
+      <article class="proyecto">
+        <picture>
+          <source media="(min-width:650px)" srcset="imagenes/reforestacion2.jpg">
+          <img src="imagenes/reforestacion2.jpg" alt="Reforestación Urbana">
+        </picture>
+        <h3>Reforestación Urbana</h3>
+        <p>Plantación de árboles en plazas y barrios.</p>
+        <a href="reforestacion.html" class="btn-ver-mas">Ver proyecto</a>
+      </article>
+
+      <article class="proyecto">
+        <picture>
+          <source media="(min-width:650px)" srcset="imagenes/pvm.jpg">
+          <img src="imagenes/pvm.jpg" alt="Puntos Verdes">
+        </picture>
+        <h3>Puntos Verdes</h3>
+        <p>Instalación de centros de reciclaje comunitarios.</p>
+        <a href="puntosverdes.html" class="btn-ver-mas">Ver proyecto</a>
+      </article>
+
+      <article class="proyecto">
+        <picture>
+          <source media="(min-width:650px)" srcset="imagenes/educambiental.jpg">
+          <img src="imagenes/educambiental.jpg" alt="Talleres en Escuelas">
+        </picture>
+        <h3>Talleres en Escuelas</h3>
+        <p>Educación ambiental para jóvenes.</p>
+        <a href="talleresescuelas.html" class="btn-ver-mas">Ver proyecto</a>
+      </article>
+
+      <article class="proyecto">
+        <picture>
+          <source media="(min-width:650px)" srcset="imagenes/limpieza.jpg">
+          <img src="imagenes/limpieza.jpg" alt="Limpieza de Espacios">
+        </picture>
+        <h3>Limpieza de Espacios</h3>
+        <p>Jornadas de limpieza en plazas y arroyos.</p>
+        <a href="limpieza.html" class="btn-ver-mas">Ver proyecto</a>
+      </article>
+
+      <article class="proyecto">
+        <picture>
+          <source media="(min-width:650px)" srcset="imagenes/puntoverde.jpg">
+          <img src="imagenes/puntoverde.jpg" alt="Reciclaje de Aparatos Electrónicos">
+        </picture>
+        <h3>Reciclaje de Aparatos Electrónicos (RAEE)</h3>
+        <p>Campaña para recolectar celulares, electrodomésticos y computadoras en desuso.</p>
+        <a href="reciclaje.html" class="btn-ver-mas">Ver proyecto</a>
+      </article>
+
+      <article class="proyecto">
+        <picture>
+          <source media="(min-width:650px)" srcset="imagenes/huertacomunit.jpg">
+          <img src="imagenes/huertacomunit.jpg" alt="Huertas Comunitarias">
+        </picture>
+        <h3>Huertas Comunitarias Sostenibles</h3>
+        <p>Creación y acompañamiento de huertas barriales y talleres de cultivo.</p>
+        <a href="huertascomunitarias.html" class="btn-ver-mas">Ver proyecto</a>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="galeria">
+    <h2>Galería de Impacto</h2>
+    <p>Mirá algunas fotos de nuestras actividades en EcoRumbo.</p>
+
+    <div class="galeria-grid">
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/barrido.jpg">
+        <img src="imagenes/barrido.jpg" alt="Imagen 1" onclick="abrirModal(this)">
+      </picture>
+
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/detalleres.jpg">
+        <img src="imagenes/detalleres.jpg" alt="Imagen 2" onclick="abrirModal(this)">
+      </picture>
+
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/huertacomunitaria.jpg">
+        <img src="imagenes/huertacomunitaria.jpg" alt="Imagen 3" onclick="abrirModal(this)">
+      </picture>
+
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/limpiezadespac.jpg">
+        <img src="imagenes/limpiezadespac.jpg" alt="Imagen 4" onclick="abrirModal(this)">
+      </picture>
+
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/electronico.jpg">
+        <img src="imagenes/electronico.jpg" alt="Imagen 5" onclick="abrirModal(this)">
+      </picture>
+
+      <picture>
+        <source media="(min-width:650px)" srcset="imagenes/plantacion.jpg">
+        <img src="imagenes/plantacion.jpg" alt="Imagen 6" onclick="abrirModal(this)">
+      </picture>
+    </div>
+  </section>
+
+  <div id="modalGaleria" class="modal-galeria" onclick="cerrarModal(event)">
+    <span class="cerrar">&times;</span>
+    <img class="modal-img" id="imgModal">
+  </div>
+
+  <section id="involucrate" class="cta">
+    <h2>Sumate a EcoRumbo</h2>
+    <p>Hacé voluntariado o colaborá con una donación para que podamos llegar a más lugares.</p>
+    <button onclick="document.getElementById('donaModal').style.display='block'" class="w3-button w3-green w3-large">Dona</button>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <picture>
+          <source media="(min-width:650px)" srcset="imagenes/logo2.png">
+          <img src="imagenes/logo2.png" alt="EcoRumbo" class="logo-footer">
+        </picture>
+        <p>ONG dedicada a la reforestación, reciclaje y educación ambiental. Sumate y hacé la diferencia.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>¿Tenés alguna pregunta? Contactanos</h4>
+        <p>Email: <a href="mailto:contacto@ecorumbo.org">contacto@ecorumbo.org</a></p>
+        <p>Tel: +54 9 11 1234 5678</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/ecorumbo/" aria-label="Instagram">Instagram</a> |
+          <a href="https://web.facebook.com/ecorumbo.TurismodeNaturaleza" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> EcoRumbo - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <div id="donaModal" class="w3-modal" onclick="if(event.target==this) this.style.display='none'">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+
+      <header class="w3-container w3-green">
+        <span onclick="document.getElementById('donaModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Doná para Reforestar</h2>
+      </header>
+
+      <div class="w3-container">
+
+        <p>Completá tus datos y elegí cuánto donar:</p>
+
+        <form>
+          <label>Nombre:</label>
+          <input class="w3-input w3-margin-bottom" type="text" placeholder="Tu nombre" required>
+
+          <label>Email:</label>
+          <input class="w3-input w3-margin-bottom" type="email" placeholder="Tu email" required>
+
+          <label>Monto:</label>
+          <input class="w3-input w3-margin-bottom" type="number" placeholder="Monto en $AR" required>
+
+          <button type="submit" class="w3-button w3-black w3-margin-top">Confirmar Donación</button>
+        </form>
+
+        <hr>
+
+        <h3>Calculá tu impacto</h3>
+        <p>Elegí cuánto donar para ver cuántos árboles se podrían plantar:</p>
+
+        <div class="w3-center w3-margin-bottom">
+          <button type="button" class="w3-button w3-green w3-margin-small" value="1000" onclick="calcularArboles(this.value)">Donar $1000</button>
+          <button type="button" class="w3-button w3-green w3-margin-small" value="2500" onclick="calcularArboles(this.value)">Donar $2500</button>
+          <button type="button" class="w3-button w3-green w3-margin-small" value="5000" onclick="calcularArboles(this.value)">Donar $5000</button>
+        </div>
+
+        <div id="resultadoImpacto" class="w3-panel w3-light-green w3-padding-16 w3-round-large" style="display:none;"></div>
+
+        <script src="script.js"></script>
+
+        <footer class="w3-container w3-green">
+          <button onclick="document.getElementById('donaModal').style.display='none'" class="w3-button w3-white w3-margin-top">Cancelar</button>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+                                                       
