@@ -85,96 +85,78 @@ h1 {
 }
 /* CELULARES: hasta 600px */
 @media only screen and (max-width: 600px) {
-
   body {
     padding: 15px;
     text-align: center;
   }
-
   h1 {
     font-size: 24px;
     margin-bottom: 20px;
   }
-
   .bins {
-    flex-direction: row;   
-    flex-wrap: wrap;          
-    justify-content: center;
-    gap: 10px;              
+    flex-direction: row;             
+    flex-wrap: nowrap;               
+    justify-content: space-between;  
+    gap: 5px;                     
     margin-bottom: 30px;
   }
-
   .bin {
-    flex: 1 1 45%;           
-    max-width: 120px;       
+    flex: 1 1 30%;               
+    min-width: 80px;                
     padding: 10px;
-    box-sizing: border-box;    
+    box-sizing: border-box;
   }
-
   .bin img {
     width: 100%;
     height: auto;
   }
-
   .bin p {
     font-size: 16px;
   }
-
   .items {
     gap: 15px;
     padding: 15px;
   }
-
   .item {
     width: 70px;
   }
-
   .btn-volver {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
 }
-
 /* TABLETS: entre 601px y 992px */
 @media only screen and (min-width: 601px) and (max-width: 992px) {
-
   h1 {
     font-size: 28px;
     margin-bottom: 25px;
   }
-
   .bins {
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap;               
     justify-content: center;
     gap: 20px;
   }
-
   .bin {
-    flex: 1 1 22%;       
+    flex: 1 1 22%;                 
     max-width: 180px;
     padding: 15px;
     box-sizing: border-box;
   }
-
   .bin img {
     width: 100%;
     height: auto;
   }
-
   .bin p {
     font-size: 17px;
   }
-
   .items {
     gap: 20px;
     padding: 18px;
   }
-
   .item {
     width: 80px;
   }
-
   .btn-volver {
     padding: 11px 24px;
     font-size: 0.95rem;
