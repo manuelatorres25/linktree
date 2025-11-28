@@ -30,75 +30,41 @@ let draggedItem = null;
 let correctas = 0;
 let intentos = 0;
 
-const totalObjetos = document.querySelectorAll(".item").length;
+const items = document.querySelectorAll('.item');
+const bins = document.querySelectorAll('.bin');
+const totalObjetos = items.length;
 
-/* --- EVENTOS PARA PC (drag & drop normal) --- */
-document.querySelectorAll(".item").forEach(item => {
-  item.addEventListener("dragstart", () => {
+// --- DESKTOP ---
+items.forEach(item => {
+  item.addEventListener('dragstart', () => {
     draggedItem = item;
   });
 });
 
-/* --- EVENTOS PARA CELULAR (touch) --- */
-document.querySelectorAll(".item").forEach(item => {
-
-  item.addEventListener("touchstart", (e) => {
+// --- MOBILE (TOUCH) ---
+items.forEach(item => {
+  item.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // evita que la imagen se abra
     draggedItem = item;
   });
 
-  item.addEventListener("touchmove", (e) => {
-    e.preventDefault(); // evita scroll mientras arrastra
-    const touch = e.touches[0];
-    const elemento = document.elementFromPoint(touch.clientX, touch.clientY);
-
-    document.querySelectorAll('.bin').forEach(bin => {
-      bin.classList.remove('dragover');
-    });
-
-    if (elemento && elemento.classList.contains('bin')) {
-      elemento.classList.add('dragover');
-    }
+  item.addEventListener('touchmove', (e) => {
+    e.preventDefault(); // evita scroll y apertura
   });
 
-  item.addEventListener("touchend", (e) => {
+  item.addEventListener('touchend', (e) => {
     const touch = e.changedTouches[0];
-    const elemento = document.elementFromPoint(touch.clientX, touch.clientY);
+    const elem = document.elementFromPoint(touch.clientX, touch.clientY);
 
-    document.querySelectorAll('.bin').forEach(bin => {
-      bin.classList.remove('dragover');
-    });
-
-    if (elemento && elemento.classList.contains("bin")) {
-      soltarEnBin(elemento);
+    if (elem && elem.classList.contains('bin')) {
+      handleDrop(elem);
     }
   });
 });
 
-/* --- EVENTOS PARA PC (dragover/drop) --- */
-document.querySelectorAll(".bin").forEach(bin => {
-  
-  bin.addEventListener("dragover", (e) => {
-    e.preventDefault();
-  });
-
-  bin.addEventListener("dragenter", () => {
-    bin.classList.add("dragover");
-  });
-
-  bin.addEventListener("dragleave", () => {
-    bin.classList.remove("dragover");
-  });
-
-  bin.addEventListener("drop", () => {
-    soltarEnBin(bin);
-  });
-});
-
-/* --- FUNCIÓN GENERAL PARA SOLTAR ITEMS --- */
-function soltarEnBin(bin) {
+// --- FUNCIONES ---
+function handleDrop(bin) {
   if (!draggedItem) return;
-
-  bin.classList.remove("dragover");
 
   const correcto = draggedItem.dataset.type === bin.dataset.type;
 
@@ -113,9 +79,18 @@ function soltarEnBin(bin) {
   draggedItem = null;
 
   if (intentos === totalObjetos) {
-    alert(`Juego terminado. Aciertos: ${correctas} de ${totalObjetos}`);
+    alert("Juego terminado. Aciertos: " + correctas + " de " + totalObjetos);
   }
 }
+
+// --- DESKTOP DROP ---
+bins.forEach(bin => {
+  bin.addEventListener('dragover', e => e.preventDefault());
+
+  bin.addEventListener('drop', () => {
+    handleDrop(bin);
+  });
+});
 
 //FORMULARIO DE CONTACTO
     (function(){
@@ -135,6 +110,7 @@ function soltarEnBin(bin) {
           alert('Hubo un error al enviar el mensaje: ' + JSON.stringify(error));
         });
     });
+
 
 
 
