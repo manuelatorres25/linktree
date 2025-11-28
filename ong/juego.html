@@ -12,7 +12,9 @@
 
   <h1>Clasificá los residuos</h1>
 
+  <!-- CONTENEDOR DE TACHOS -->
   <div class="bins">
+
     <div class="bin" data-type="organico">
       <picture>
         <source media="(min-width:650px)" srcset="imagenes/tachoverde.png">
@@ -36,39 +38,35 @@
       </picture>
       <p>Patogénico</p>
     </div>
+
   </div>
 
+  <!-- CONTENEDOR DE ITEMS -->
   <div class="items">
 
-    <picture>
-      <source media="(min-width:650px)" srcset="imagenes/banana.png">
-      <img class="item" src="imagenes/banana.png" data-type="organico" draggable="true">
-    </picture>
+    <div class="item" data-type="organico">
+      <img src="imagenes/banana.png" alt="Banana">
+    </div>
 
-    <picture>
-      <source media="(min-width:650px)" srcset="imagenes/curita.png">
-      <img class="item" src="imagenes/curita.png" data-type="patogenico" draggable="true">
-    </picture>
+    <div class="item" data-type="patogenico">
+      <img src="imagenes/curita.png" alt="Curita">
+    </div>
 
-    <picture>
-      <source media="(min-width:650px)" srcset="imagenes/manzana.png">
-      <img class="item" src="imagenes/manzana.png" data-type="organico" draggable="true">
-    </picture>
+    <div class="item" data-type="organico">
+      <img src="imagenes/manzana.png" alt="Manzana">
+    </div>
 
-    <picture>
-      <source media="(min-width:650px)" srcset="imagenes/botella.png">
-      <img class="item" src="imagenes/botella.png" data-type="seco" draggable="true">
-    </picture>
+    <div class="item" data-type="seco">
+      <img src="imagenes/botella.png" alt="Botella">
+    </div>
 
-    <picture>
-      <source media="(min-width:650px)" srcset="imagenes/caja.png">
-      <img class="item" src="imagenes/caja.png" data-type="seco" draggable="true">
-    </picture>
+    <div class="item" data-type="seco">
+      <img src="imagenes/caja.png" alt="Caja">
+    </div>
 
-    <picture>
-      <source media="(min-width:650px)" srcset="imagenes/jeringa.png">
-      <img class="item" src="imagenes/jeringa.png" data-type="patogenico" draggable="true">
-    </picture>
+    <div class="item" data-type="patogenico">
+      <img src="imagenes/jeringa.png" alt="Jeringa">
+    </div>
 
   </div>
 
@@ -78,6 +76,3 @@
 
 </body>
 </html>
-
-
-
