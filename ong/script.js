@@ -27,71 +27,53 @@ function cerrarModal(e) {
 }
 //JUEGO
 let draggedItem = null;
-let correctas = 0;
-let intentos = 0;
+let correctas = 0; 
+let intentos = 0;  
 
-const items = document.querySelectorAll('.item');
-const bins = document.querySelectorAll('.bin');
-const totalObjetos = items.length;
+const totalObjetos = document.querySelectorAll('.item').length;
 
-// --- DESKTOP ---
-items.forEach(item => {
+document.querySelectorAll('.item').forEach(item => {
   item.addEventListener('dragstart', () => {
     draggedItem = item;
   });
 });
 
-// --- MOBILE (TOUCH) ---
-items.forEach(item => {
-  item.addEventListener('touchstart', (e) => {
-    e.preventDefault(); // evita que la imagen se abra
-    draggedItem = item;
+document.querySelectorAll('.bin').forEach(bin => {
+
+  bin.addEventListener('dragover', (e) => {
+    e.preventDefault();
   });
 
-  item.addEventListener('touchmove', (e) => {
-    e.preventDefault(); // evita scroll y apertura
+  bin.addEventListener('dragenter', () => {
+    bin.classList.add('dragover');
   });
 
-  item.addEventListener('touchend', (e) => {
-    const touch = e.changedTouches[0];
-    const elem = document.elementFromPoint(touch.clientX, touch.clientY);
+  bin.addEventListener('dragleave', () => {
+    bin.classList.remove('dragover');
+  });
 
-    if (elem && elem.classList.contains('bin')) {
-      handleDrop(elem);
+  bin.addEventListener('drop', () => {
+    bin.classList.remove('dragover');
+
+    if (!draggedItem) return;
+
+    const correcto = draggedItem.dataset.type === bin.dataset.type;
+
+    if (correcto) {
+      alert("¡Correcto!");
+      correctas++;
+    } else {
+      alert("Incorrecto");
+    }
+
+    intentos++;
+    draggedItem = null;
+
+    if (intentos === totalObjetos) {
+      alert("Juego terminado. Aciertos: " + correctas + " de " + totalObjetos);
     }
   });
 });
-
-// --- FUNCIONES ---
-function handleDrop(bin) {
-  if (!draggedItem) return;
-
-  const correcto = draggedItem.dataset.type === bin.dataset.type;
-
-  if (correcto) {
-    alert("¡Correcto!");
-    correctas++;
-  } else {
-    alert("Incorrecto");
-  }
-
-  intentos++;
-  draggedItem = null;
-
-  if (intentos === totalObjetos) {
-    alert("Juego terminado. Aciertos: " + correctas + " de " + totalObjetos);
-  }
-}
-
-// --- DESKTOP DROP ---
-bins.forEach(bin => {
-  bin.addEventListener('dragover', e => e.preventDefault());
-
-  bin.addEventListener('drop', () => {
-    handleDrop(bin);
-  });
-});
-
 //FORMULARIO DE CONTACTO
     (function(){
       emailjs.init("_XQ6zjcwkulunLv28"); // <-- reemplaza con tu Public Key
@@ -110,6 +92,7 @@ bins.forEach(bin => {
           alert('Hubo un error al enviar el mensaje: ' + JSON.stringify(error));
         });
     });
+
 
 
 
