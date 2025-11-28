@@ -102,7 +102,7 @@ function evaluarRespuesta(item, bin) {
     form.addEventListener('submit', function(event) {
       event.preventDefault();
 
-      emailjs.sendForm('serviceid', 'template_ld9ek2o', this) // <-- reemplaza con tu Service ID y Template ID
+      emailjs.sendForm('serviceid', 'template_yrixckg', this) // <-- reemplaza con tu Service ID y Template ID
         .then(function() {
           alert('Mensaje enviado con éxito!');
           form.reset();
@@ -110,6 +110,7 @@ function evaluarRespuesta(item, bin) {
           alert('Hubo un error al enviar el mensaje: ' + JSON.stringify(error));
         });
     });
+
 
 
 
